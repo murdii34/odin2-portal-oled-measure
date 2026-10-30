@@ -1,0 +1,284 @@
+{
+ "points": [
+  56,
+  58,
+  60,
+  62,
+  64,
+  66,
+  68,
+  70,
+  72
+ ],
+ "records": [
+  {
+   "rep": 0,
+   "dir": "up",
+   "b": 56,
+   "ratio": 1.9469580532715691,
+   "mode": "clean"
+  },
+  {
+   "rep": 0,
+   "dir": "up",
+   "b": 58,
+   "ratio": 2.354631606096833,
+   "mode": "clean"
+  },
+  {
+   "rep": 0,
+   "dir": "up",
+   "b": 60,
+   "ratio": 2.2930370268566382,
+   "mode": "clean"
+  },
+  {
+   "rep": 0,
+   "dir": "up",
+   "b": 62,
+   "ratio": 2.234872462501922,
+   "mode": "clean"
+  },
+  {
+   "rep": 0,
+   "dir": "up",
+   "b": 64,
+   "ratio": 1.7004648011442436,
+   "mode": "clean"
+  },
+  {
+   "rep": 0,
+   "dir": "up",
+   "b": 66,
+   "ratio": 1.6879476170373149,
+   "mode": "clean"
+  },
+  {
+   "rep": 0,
+   "dir": "up",
+   "b": 68,
+   "ratio": 6.064555776416003,
+   "mode": "bad"
+  },
+  {
+   "rep": 0,
+   "dir": "up",
+   "b": 70,
+   "ratio": 4.667715175998125,
+   "mode": "bad"
+  },
+  {
+   "rep": 0,
+   "dir": "up",
+   "b": 72,
+   "ratio": 4.661252598988934,
+   "mode": "bad"
+  },
+  {
+   "rep": 0,
+   "dir": "down",
+   "b": 72,
+   "ratio": 4.6665235989124465,
+   "mode": "bad"
+  },
+  {
+   "rep": 0,
+   "dir": "down",
+   "b": 70,
+   "ratio": 4.649488669591748,
+   "mode": "bad"
+  },
+  {
+   "rep": 0,
+   "dir": "down",
+   "b": 68,
+   "ratio": 6.025177032139469,
+   "mode": "bad"
+  },
+  {
+   "rep": 0,
+   "dir": "down",
+   "b": 66,
+   "ratio": 1.649160984097732,
+   "mode": "clean"
+  },
+  {
+   "rep": 0,
+   "dir": "down",
+   "b": 64,
+   "ratio": 5.951682400666371,
+   "mode": "bad"
+  },
+  {
+   "rep": 0,
+   "dir": "down",
+   "b": 62,
+   "ratio": 1.6531523423749106,
+   "mode": "clean"
+  },
+  {
+   "rep": 0,
+   "dir": "down",
+   "b": 60,
+   "ratio": 2.228302521786607,
+   "mode": "clean"
+  },
+  {
+   "rep": 0,
+   "dir": "down",
+   "b": 58,
+   "ratio": 2.2312901587252165,
+   "mode": "clean"
+  },
+  {
+   "rep": 0,
+   "dir": "down",
+   "b": 56,
+   "ratio": 1.7913355629852976,
+   "mode": "clean"
+  },
+  {
+   "rep": 1,
+   "dir": "up",
+   "b": 56,
+   "ratio": 1.7724052597902071,
+   "mode": "clean"
+  },
+  {
+   "rep": 1,
+   "dir": "up",
+   "b": 58,
+   "ratio": 2.174798833545142,
+   "mode": "clean"
+  },
+  {
+   "rep": 1,
+   "dir": "up",
+   "b": 60,
+   "ratio": 2.1871167852827753,
+   "mode": "clean"
+  },
+  {
+   "rep": 1,
+   "dir": "up",
+   "b": 62,
+   "ratio": 1.585644401851416,
+   "mode": "clean"
+  },
+  {
+   "rep": 1,
+   "dir": "up",
+   "b": 64,
+   "ratio": 1.6121832881694902,
+   "mode": "clean"
+  },
+  {
+   "rep": 1,
+   "dir": "up",
+   "b": 66,
+   "ratio": 5.882638465908339,
+   "mode": "bad"
+  },
+  {
+   "rep": 1,
+   "dir": "up",
+   "b": 68,
+   "ratio": 1.5822601177185147,
+   "mode": "clean"
+  },
+  {
+   "rep": 1,
+   "dir": "up",
+   "b": 70,
+   "ratio": 4.537017292242359,
+   "mode": "bad"
+  },
+  {
+   "rep": 1,
+   "dir": "up",
+   "b": 72,
+   "ratio": 4.557543916549932,
+   "mode": "bad"
+  },
+  {
+   "rep": 1,
+   "dir": "down",
+   "b": 72,
+   "ratio": 4.567859118524525,
+   "mode": "bad"
+  },
+  {
+   "rep": 1,
+   "dir": "down",
+   "b": 70,
+   "ratio": 4.555434265073534,
+   "mode": "bad"
+  },
+  {
+   "rep": 1,
+   "dir": "down",
+   "b": 68,
+   "ratio": 5.86219366434702,
+   "mode": "bad"
+  },
+  {
+   "rep": 1,
+   "dir": "down",
+   "b": 66,
+   "ratio": 1.5941764091692259,
+   "mode": "clean"
+  },
+  {
+   "rep": 1,
+   "dir": "down",
+   "b": 64,
+   "ratio": 5.865488629059111,
+   "mode": "bad"
+  },
+  {
+   "rep": 1,
+   "dir": "down",
+   "b": 62,
+   "ratio": 1.583443616826722,
+   "mode": "clean"
+  },
+  {
+   "rep": 1,
+   "dir": "down",
+   "b": 60,
+   "ratio": 2.1748206040812588,
+   "mode": "clean"
+  },
+  {
+   "rep": 1,
+   "dir": "down",
+   "b": 58,
+   "ratio": 2.1959203266957794,
+   "mode": "clean"
+  },
+  {
+   "rep": 1,
+   "dir": "down",
+   "b": 56,
+   "ratio": 1.772521718458211,
+   "mode": "clean"
+  }
+ ],
+ "summary": {
+  "always_clean": [
+   56,
+   58,
+   60,
+   62
+  ],
+  "always_bad": [
+   70,
+   72
+  ],
+  "unstable": [
+   64,
+   66,
+   68
+  ]
+ }
+}
