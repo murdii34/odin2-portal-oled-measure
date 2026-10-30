@@ -238,3 +238,24 @@ the local network by the Odin).
     RESULTS 30's day-to-day spread (+5% / -47% / -18%): how warm the Odin was. Cooler = greener
     and darker at the lowest codes. Next: a correction for grey 4-12 at the floor that follows
     temperature; needs a cold point (from standby) and a long-game hot point to fit.
+32. **The hand-over flashes and blacks out** (2026-10-30, `stairs-video-t1`, A7 IV USB streaming
+    30 fps, grey 128, slider 0->25->0% via Steam's SetBrightness at 1 / 0.5 / 0.25 s per 1% step,
+    `stairs_video.py`): every pass **up from 4% to 5%** (native 53 -> floor dimming at 543) shows
+    the patch at ~4.6x its level (148 vs 32-35, i.e. undimmed 543) for 4 frames (~130 ms) at 1 s
+    per step, and for 15-32 frames (0.5-1.1 s) at 0.5 and 0.25 s per step: the backlight reaches
+    543 before the dimming does, and quick steps keep the dimming from catching up. Every pass
+    **down from 5% to 4%** blacks out for 2-4 frames (to ~15% of the level: the backlight at 53
+    while the dimming gain still applies). No other step jumps (+-10% at most). murdii saw it by
+    eye ("BAM"). Settled values (`stairs-20261030`, stills, 1.5 cycles): the hand-over also
+    settles uneven (white +9.5%, grey 16 -18%, darks red -> green), up/down differ by the panel.
+33. **Hand-over fixed to a short dip** (2026-10-30, `handover-s1..s3`, `handover_sweep.py`, plugin
+    711a5fd and after): the floor's ladder effect now stays on screen below the band on a
+    pass-through technique, so the 4% <-> 5% crossing is a technique switch, no compile. Filmed
+    lead sweep: the technique switch shows fast, the backlight lands a bit later, and the two
+    jitter by 1-2 frames between crossings (lead 0: ~1.5 frames off, flash or dip at random;
+    lead >= 80 ms up: pure dip growing with the lead; technique-first down: pure flash). So the
+    order is chosen to leave only dips: up = dimming 80 ms ahead of the backlight, down =
+    backlight 60 ms ahead of the pass-through. `handover-s3` (10 up, 10 down): no flash (worst
+    1.04x = noise), dips to ~14% for ~3 frames up, ~4.5 frames down; before (t1) 4.6x for 4
+    frames at 1 s steps and up to 32 frames when stepping fast. A smooth hand-over would need
+    a ramp across the band (several matched backlight/gain steps in ~100 ms): next idea.

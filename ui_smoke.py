@@ -5,7 +5,7 @@ effect and technique atoms, the plugin's settings, state file and log.
 Everything is given back at the end. ~2 min; the screen changes brightness.
 usage: python3 ui_smoke.py   (exit 1 if any check fails)"""
 import glob, json, os, sys, time
-sys.path.insert(0, os.path.expanduser("~/decky-oled-tint"))
+sys.path.insert(0, os.path.expanduser("~/projects/decky-oled-tint"))
 import cdp
 import plugin
 from screen import read_backlight

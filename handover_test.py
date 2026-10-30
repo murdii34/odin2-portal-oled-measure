@@ -4,7 +4,7 @@ takes over) against floor-dimmed targets 57..80 at backlight 543. A smooth
 slider needs the two sides to meet: Y(255) should follow the panel's white
 curve across 57 without a step. usage: handover_test.py [NAME] -> runs/NAME.json"""
 import json, os, sys, time
-sys.path.insert(0, os.path.expanduser("~/decky-oled-tint"))
+sys.path.insert(0, os.path.expanduser("~/projects/decky-oled-tint"))
 import plugin
 from measure import RUNS, Rig, codes, log
 import main as plug

@@ -335,7 +335,7 @@ def cmd_calibrate(args):
             # Start from what the plugin resolves now, written out explicitly so
             # every level is independent of its neighbours.
             data = plugin.read()
-            sys.path.insert(0, os.path.expanduser("~/decky-oled-tint"))
+            sys.path.insert(0, os.path.expanduser("~/projects/decky-oled-tint"))
             import main as tint                       # the plugin's own maths
             tints, lifts, hues = tint.resolve_step(data["steps"][si])
             vals = {lv: [tints[i], lifts[i] if args.lift is None else args.lift, hues[i]]

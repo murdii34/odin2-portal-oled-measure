@@ -1,7 +1,7 @@
 # oled-measure
 
 Camera-based measurement and calibration for the OLED Tint Decky plugin
-(`~/decky-oled-tint`). A Sony camera in PC Remote mode over USB, driven by
+(`~/projects/decky-oled-tint`). A Sony camera in PC Remote mode over USB, driven by
 gphoto2; grey patches shown full-screen through Steam's UI (debug port 8080).
 
 Everything runs in the `oled-cam` toolbox (gphoto2, rawpy, numpy,

@@ -9,7 +9,7 @@ the raw backlight, white + greys 64/16 (and 4/8 around the hand-over).
 usage: stairs.py NAME [CYCLES [TOP]]   -> runs/NAME.json
        stairs.py --summary NAME"""
 import json, os, sys, time
-sys.path.insert(0, os.path.expanduser("~/decky-oled-tint"))
+sys.path.insert(0, os.path.expanduser("~/projects/decky-oled-tint"))
 import camera, cdp, measure, plugin
 from measure import RAW, RUNS, ROI_FILE, Rig, codes, log
 from screen import Screen, read_backlight

@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "stairs.py", line 145, in <module>
+    summary(sys.argv[2])
+    ~~~~~~~^^^^^^^^^^^^^
+  File "stairs.py", line 124, in summary
+    d = json.load(open(os.path.join(RUNS, name + ".json")))
+                  ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'runs/stairs-20261030.json'

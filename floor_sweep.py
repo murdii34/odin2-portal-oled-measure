@@ -4,7 +4,7 @@ colour (R/G, B/G) against a7iv-ref, shape against the undimmed floor, and the
 light against what the panel's own white curve says that target should give.
 usage: [OLED_FLOOR=600] floor_sweep.py [NAME [N_TARGETS [LEVELS]]]  -> runs/NAME.json"""
 import json, math, os, sys, time
-sys.path.insert(0, os.path.expanduser("~/decky-oled-tint"))
+sys.path.insert(0, os.path.expanduser("~/projects/decky-oled-tint"))
 import plugin
 from measure import RUNS, Rig, codes, log
 import main as plug     # the plugin's own white curve (white_at)
