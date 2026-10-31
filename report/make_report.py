@@ -545,6 +545,8 @@ def main():
         ("Pattern blur", "alternating rows lose up to 40%, columns honest"),
         ("Flicker", "no classic PWM; ≈1.3 kHz ripple of 1–3% at 96–310"),
         ("Stray light (rig)", "≤0.43% next to a bright window"),
+        ("Second unit", "another Portal (2026-10-31, eye check, no camera): the same green band, gone with the plugin and this unit's calibration"),
+        ("Plugin", "OLED Tint 0.2.0 (beta, 2026-10-31) for Decky Loader: github.com/murdii34/decky-oled-tint"),
     ] + ([("Room light (rig)", amb_spec)] if amb_spec else [])
     tiles = ""
     if lv:
@@ -743,7 +745,7 @@ hr.divider { border: 0; border-top: 1px solid var(--axis); margin: 28px 0 8px; }
 </style></head>
 <body><main>
 <h1>Odin 2 Portal panel</h1>
-<p class="sub">What a camera (Sony A7 III, raw, in a printed light hood) found about this OLED, and what the OLED Tint plugin does about it.
+<p class="sub">What a camera (Sony A7 III, later A7 IV, raw, in a printed light hood) found about this OLED, and what the OLED Tint plugin does about it.
 Built %STAMP% from the measurement files.</p>
 <nav><a href="#status">Status</a><a href="#pedestal">Pedestal</a><a href="#fix">Before/after</a><a href="#tone">Tone curve</a><a href="#patterns">Patterns</a>
 <a href="#vibrance">Vibrance</a><a href="#uniformity">Uniformity</a><a href="#sweep">Sweep</a><a href="#pwm">Flicker</a><a href="#extras">Stray light</a><a href="#accuracy">Accuracy</a><a href="#calibration">Calibration</a><a href="#ambient">Room light</a></nav>
