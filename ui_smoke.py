@@ -4,7 +4,7 @@ then checks what really happened - the backlight in sysfs, gamescope's
 effect and technique atoms, the plugin's settings, state file and log.
 Everything is given back at the end. ~2 min; the screen changes brightness.
 usage: python3 ui_smoke.py   (exit 1 if any check fails)"""
-import glob, json, os, sys, time
+import glob, json, os, sys, threading, time
 sys.path.insert(0, os.path.expanduser("~/projects/decky-oled-tint"))
 import cdp
 import plugin
@@ -94,12 +94,55 @@ with plugin.switches_kept():
         #    asked-for brightness comes back.
         ask(0.15)
         wait(lambda: abs(read_backlight() - floor) <= floor * 0.03)
-        plugin.change(lambda d: d.update(enabled=False), compiled=False)
-        gone = wait(lambda: not str(atom(plug.RESHADE_ATOM) or "").startswith("oled"), 8)
+        # Meanwhile, in that order: the effect first (it can only go), then the
+        # backlight (it can only drop): the floor with no effect is a real flash.
+        samples, stop = [], threading.Event()
+        def sample():
+            while not stop.is_set():
+                on = str(atom(plug.RESHADE_ATOM) or "").startswith("oled")
+                samples.append((on, read_backlight()))
+        sampler = threading.Thread(target=sample)
+        sampler.start()
+        try:
+            plugin.change(lambda d: d.update(enabled=False), compiled=False)
+            gone = wait(lambda: not str(atom(plug.RESHADE_ATOM) or "").startswith("oled"), 8)
+            back = wait(lambda: read_backlight() < floor * 0.9, 8)
+        finally:
+            stop.set()
+            sampler.join()
         check("correction off: effect removed", gone, f"{atom(plug.RESHADE_ATOM)}")
-        back = wait(lambda: read_backlight() < floor * 0.9, 8)
         check("correction off: the asked-for (lower) backlight given back", back, f"backlight {read_backlight()}")
+        flash = [bl for on, bl in samples if not on and bl >= floor * 0.97]
+        check("correction off: the backlight dropped before the effect went (no floor undimmed)", not flash,
+              f"{len(flash)} of {len(samples)} samples at the floor without the effect")
+
+        # 5. Back on (review 10-31 #1): up to the floor again, dimmed for the
+        #    target. It used to stay in the band, uncorrected, until the next
+        #    slider move.
+        def at_floor_dimmed():
+            t, tech = plugin.read().get("soft_target"), atom(plug.RESHADE_TECHNIQUE_ATOM)
+            return abs(read_backlight() - floor) <= floor * 0.03 and t and isinstance(tech, int) \
+                and abs(tech - plug.gain_index(plug.soft_gain(t, floor))) <= 1
+        now = lambda: f"backlight {read_backlight()}, technique {atom(plug.RESHADE_TECHNIQUE_ATOM)}, soft_target {plugin.read().get('soft_target')}"
         plugin.change(lambda d: d.update(enabled=True), compiled=False)
+        check("correction back on: at the floor again, dimmed", wait(at_floor_dimmed, 8), now())
+
+        # 6. The same through the frontend's switch (the sidebar toggle, the
+        #    Test pattern's Y): off and straight on again, then Compare, which
+        #    showed the floor undimmed (review 10-31 #2).
+        hook = steam.eval("typeof OLEDTint === 'object'")
+        check("frontend test hook (window.OLEDTint)", hook)
+        if hook:
+            steam.eval("OLEDTint.correction(false); true")
+            check("switch off: the target's backlight", wait(lambda: read_backlight() < floor * 0.9, 4), now())
+            steam.eval("OLEDTint.correction(true); true")
+            check("switch back on: at the floor again, dimmed", wait(at_floor_dimmed, 8), now())
+            steam.eval("OLEDTint.compare(4); true")
+            check("Compare: the backlight at the target", wait(lambda: read_backlight() < floor * 0.9, 2), now())
+            check("Compare: no effect meanwhile", wait(lambda: not str(atom(plug.RESHADE_ATOM) or "").startswith("oled"), 3),
+                  f"{atom(plug.RESHADE_ATOM)}")
+            time.sleep(4)
+            check("after Compare: at the floor again, dimmed", wait(at_floor_dimmed, 8), now())
     finally:
         plugin.change(lambda d: d.update(soft_target=keep_target), compiled=False)
 

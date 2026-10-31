@@ -259,3 +259,7 @@ the local network by the Odin).
     1.04x = noise), dips to ~14% for ~3 frames up, ~4.5 frames down; before (t1) 4.6x for 4
     frames at 1 s steps and up to 32 frames when stepping fast. A smooth hand-over would need
     a ramp across the band (several matched backlight/gain steps in ~100 ms): next idea.
+9. **Second unit confirmed** (2026-10-31, field report, no camera): a friend's
+   Odin 2 Portal with floor dimming installed via Decky "install from URL":
+   "no more green". So the bad band is not one panel's quirk, and the fix
+   carries over without per-unit calibration (eye check only).
